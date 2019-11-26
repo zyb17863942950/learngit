@@ -1,0 +1,54 @@
+
+# 扫描 resources下的 mapper.xml
+mybatis:
+  mapper-locations: classpath:mps/*.xml
+    
+
+# 配置MySQL数据源
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size:  500MB
+      max-request-size: 500MB
+        
+        
+
+  datasource:
+    # 注意：MySQL连接驱动和版本都是8.0以上需要添加时区：serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/mgj
+    username: root
+    password: 123456
+    # 可省略
+    driver-class-name: com.mysql.jdbc.Driver
+   
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 下面为连接池的补充设置，应用到上面所有数据源中
+      # 初始化大小，最小，最大
+      initial-size: 100
+      min-idle: 50
+      max-active: 200
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+
+
+# 根据需要设置 静态资源访问路径: classpath表示类路径，file表示指定硬盘物理目录
+  resources:
+      static-locations: classpath:/public,classpath:/static,file:d:/sysfiles190806
+    
+    
+  
+      
+
+
+# 根据需要 设置 项目访问路径以及端口
+server:
+  servlet:
+    context-path: /mgj
+  port: 8086
+    
+  
+    
