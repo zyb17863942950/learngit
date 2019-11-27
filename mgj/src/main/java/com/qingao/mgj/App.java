@@ -12,7 +12,16 @@ import org.springframework.scheduling.annotation.Scheduled;
 @MapperScan(value = "com.qingao.mgj.mapper")
 @EnableScheduling
 public class App {
-
+	/*
+	 * 主界面上的定时任务器
+	 * 
+	 * @Scheduled(fixedRate=5000)
+	public void abc(){
+		System.out.println("尝试一下定时任务");
+		
+		
+	}*/
+	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(App.class, args);
 	}
