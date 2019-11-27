@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingao.mgj.mapper.Store_OrderinfoMapper">
+
+	<select id="getStoreOrderinfo" resultType="map">
+		SELECT
+		info.ofid,info.userid,info.recipient,list1.olid,list1.gdid,list1.gdcount,list1.price,stinfo.stname,stinfo.stid
+		FROM orderinfo info,orderlist list1, storeinfo stinfo,goodsinfo gs
+		WHERE info.ofid=list1.ofid AND stinfo.stid=gs.stid AND
+		list1.gdid=gs.gdid AND stinfo.stid=#{stid}
+	</select>
+</mapper>

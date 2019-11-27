@@ -1,9 +1,12 @@
 package com.qingao.mgj.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,5 +47,19 @@ public class Store_GoodsinfoController {
 		 }
 		 
 		return false;
+	}
+	
+	/**
+	 * 
+	 * @param session  作用域用于储存接收用户的stid
+	 * 根据stid 来辨商家用户，以此将数据库中的订单查询显示
+	 * @param stid 
+	 * @return
+	 */
+	@RequestMapping("getstoreorderinfo")
+	public Object getStoreOrderinfo(HttpSession session,Integer stid){
+		Map result=new HashMap();
+		result.put("orderinfo",appService.getStoreOrderinfo(stid));
+		return result;
 	}
 }
