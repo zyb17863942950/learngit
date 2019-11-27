@@ -16,7 +16,7 @@ public class AppService {
 	
 	public Map getStore_goodsinfo(Integer gimgid){
 		
-		return store_GoodsinfoMapper.getGoodsinfo(gimgid);
+		return store_GoodsinfoMapper.getStoreGoodsinfo(gimgid);
 	}
 	
 }

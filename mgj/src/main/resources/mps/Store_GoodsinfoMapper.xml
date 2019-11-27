@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingao.mgj.mapper.Store_GoodsinfoMapper">
+  
+  <select id="getStoreGoodsinfo" resultType="map" parameterType="java.util.List" >
+   SELECT img.gimgid,goods.gdname,price.price 
+			 FROM goodsinfo goods,goodsprice price,goodsimage img  
+			 WHERE goods.gdid=price.gpid AND img.gdid=goods.gdid AND img.gimgid=#{gimgid} ;
+    </select>
+</mapper>
