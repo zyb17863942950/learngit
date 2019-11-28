@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.qingao.mgj.exception.LogNameIsNotExistException;
+import com.qingao.mgj.exception.PasswordErrorException;
 import com.qingao.mgj.mapper.StoreMapper;
 import com.qingao.mgj.mapper.Store_GoodsinfoMapper;
 import com.qingao.mgj.mapper.Store_OrderinfoMapper;
@@ -21,7 +23,6 @@ public class AppService {
 
 	@Autowired
 	Store_GoodsinfoMapper store_GoodsinfoMapper;
-	
 	
 	@Autowired
 	Store_OrderinfoMapper store_OrderinfoMapper;
@@ -42,6 +43,30 @@ public class AppService {
 		return  store_OrderinfoMapper.getStoreOrderinfo(stid);
 
 	}
+	
+	
+public Store login(String stlogname,String stpassword) throws PasswordErrorException, LogNameIsNotExistException{
+		
+		StoreExample example = new StoreExample();
+		example.createCriteria().andStlognameEqualTo(stlogname);
+		List<Store> list=storeMapper.selectByExample(example);
+		
+		if(list==null||list.size()==0){
+			
+			 throw new LogNameIsNotExistException();
+			}
+		  Store store=list.get(0);
+		    
+		  String client_password=new Md5Hash(stpassword,store.getSalt()).toString();
+		  
+		  if(!client_password.equals(store.getStpassword())){
+			  throw new PasswordErrorException();
+		  }
+		
+		  return store;
+	}
+	
+	
 	
 	public boolean storeNameAlreadyUsed(String stlogname){
 		StoreExample example=new StoreExample();

@@ -29,8 +29,8 @@ public class Store {
         return stpassword;
     }
 
-    public void setStpassword(String stpassword) {
-        this.stpassword = stpassword;
+    public void setStpassword(String i) {
+        this.stpassword = i;
     }
 
     public String getSalt() {
