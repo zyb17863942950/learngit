@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpSession;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.qingao.mgj.controller.GoodscollectionController;
 import com.qingao.mgj.controller.RegeditAndLoginController;
 import com.qingao.mgj.controller.Store_GoodsinfoController;
 import com.qingao.mgj.mapper.Store_GoodsCollectionMapper;
@@ -29,16 +29,16 @@ import org.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication(scanBasePackages="com.qingao.mgj")
 @MapperScan(value="com.qingao.mgj.mapper")
 public class TestUnit {
-
-	@Autowired
-	Store_OrderinfoMapper store1;
 	
 	@Autowired
-	RegeditAndLoginController regeditController;
+	GoodscollectionController  gcontroller;
 	 
-	 @Autowired
-	 Store_GoodsCollectionMapper  sgcm;
+	@Autowired
+	Store_GoodsCollectionMapper stgc;
 	
+	@Autowired
+	RegeditAndLoginController regeditAndLoginController;
+	 
 	@Test
 	public void test(){
 	/*	  Store dd=new Store();
@@ -48,12 +48,14 @@ public class TestUnit {
 		   regeditController.doRegedit(dd);
 		   
 		System.out.println("成功"); */ 
-		
-		 Object login = regeditController.login("西子梦纱3", "3333");
- 		System.out.println(login); 
-		/*Integer goodsCollectionCounts = sgcm.getGoodsCollectionCounts(4);
-		System.out.println(goodsCollectionCounts);*/
-		
+		 
+		 /*Object login = regeditAndLoginController.login("西子梦纱3", "3333");
+ 		System.out.println(login); */ 
+		 /*Integer goodsCollectionCounts = stgc.getGoodsCollectionCount(4);
+		System.out.println(goodsCollectionCounts); 
+		System.out.println("成功");*/
+		Integer integer = gcontroller.getgoodscollectioncount(4, 10);
+		System.out.println(integer);
 	}
 	
 	 

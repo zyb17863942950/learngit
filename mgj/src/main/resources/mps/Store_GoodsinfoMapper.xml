@@ -5,6 +5,6 @@
   <select id="getStoreGoodsinfo" resultType="map" parameterType="java.util.List" >
    SELECT img.gimgid,goods.gdname,price.price 
 			 FROM goodsinfo goods,goodsprice price,goodsimage img  
-			 WHERE goods.gdid=price.gpid AND img.gdid=goods.gdid AND img.gimgid=#{gimgid} ;
+			 WHERE goods.gdid=price.gpid AND img.gdid=goods.gdid AND img.gimgid=#{gimgid};
     </select>
 </mapper>

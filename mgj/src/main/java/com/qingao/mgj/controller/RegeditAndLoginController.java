@@ -13,7 +13,7 @@ import com.qingao.mgj.service.AppService;
 
 
 @RestController
-@RequestMapping("/regeditcontroller")
+@RequestMapping("/regeditandlogincontroller")
 public class RegeditAndLoginController {
 	
 	@Autowired
