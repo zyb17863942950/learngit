@@ -14,6 +14,7 @@ import com.qingao.mgj.mapper.StoreMapper;
 import com.qingao.mgj.mapper.Store_GoodsinfoMapper;
 import com.qingao.mgj.mapper.Store_OrderinfoMapper;
 import com.qingao.mgj.pojo.Store;
+import com.qingao.mgj.pojo.StoreExample;
 
 @Service
 public class AppService {
@@ -40,6 +41,13 @@ public class AppService {
 
 		return  store_OrderinfoMapper.getStoreOrderinfo(stid);
 
+	}
+	
+	public boolean storeNameAlreadyUsed(String stlogname){
+		StoreExample example=new StoreExample();
+		example.createCriteria().andStlognameEqualTo(stlogname);
+		return storeMapper.countByExample(example)==1;
+		
 	}
 	
 	@Transactional
