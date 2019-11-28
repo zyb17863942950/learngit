@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TimerControllerService {
 	
-	@Autowired
+	/*@Autowired
 	AppService appServer;
 	 
 	@Scheduled(fixedRate=2000)
@@ -19,5 +19,5 @@ public class TimerControllerService {
 	public void eat(){
 		
 		System.out.println("验证一下定时器的应用");
-	} 
+	} */
 }

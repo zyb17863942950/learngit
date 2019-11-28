@@ -12,9 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.qingao.mgj.controller.RegeditController;
 import com.qingao.mgj.controller.Store_GoodsinfoController;
 import com.qingao.mgj.mapper.Store_GoodsinfoMapper;
 import com.qingao.mgj.mapper.Store_OrderinfoMapper;
+import com.qingao.mgj.pojo.Store;
 import com.qingao.mgj.service.AppService;
 
 import org.mybatis.spring.annotation.MapperScan;
@@ -25,15 +27,22 @@ import org.mybatis.spring.annotation.MapperScan;
 @MapperScan(value="com.qingao.mgj.mapper")
 public class TestUnit {
 	@Autowired
-	Store_OrderinfoMapper store;
+	Store_OrderinfoMapper store1;
+	
+	@Autowired
+	RegeditController regeditController;
+	 
 	 
 	
 	@Test
 	public void test(){
-	 
-		List<Map> storeOrderinfo = store.getStoreOrderinfo(2);
-		System.out.println(storeOrderinfo);
-		
+		Store dd=new Store();
+		dd.setStid(1);
+		dd.setStlogname("西子梦纱");
+		dd.setStpassword("444");
+		  /* regeditController.doRegedit(dd);
+		   
+		System.out.println("成功");*/
 		
 	}
 	
