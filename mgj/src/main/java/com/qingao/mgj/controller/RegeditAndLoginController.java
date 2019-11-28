@@ -20,6 +20,24 @@ public class RegeditAndLoginController {
 	AppService appService;
 	
 	
+	
+	@RequestMapping("logout")
+	public Object logout(HttpSession session){
+		if(session.getAttribute("store")!=null){
+			session.removeAttribute("store");
+			
+		}
+			return true;
+	}
+	
+	@RequestMapping("useronline")
+	public Object isUserOnline(HttpSession session){
+		
+		return session.getAttribute("store");
+	}
+	
+	
+	
 	/**
 	 * 
 	 * @param stlogname
@@ -31,8 +49,8 @@ public class RegeditAndLoginController {
 	public Object login(String stlogname,String stpassword,HttpSession session){
 		
 		try {
-			Store user = appService.login(stlogname, stpassword);
-			session.setAttribute("user", user);
+			Store store = appService.login(stlogname, stpassword);
+			session.setAttribute("store", store);
 			return 1;
 		} catch (LogNameIsNotExistException e) {
 			// TODO Auto-generated catch block
