@@ -46,11 +46,11 @@ public class RegeditAndLoginController {
 	 * @return  状态没有被禁用，只有用户不存在以及密码错误两个状态
 	 */
 	@RequestMapping("login")
-	public Object login(String stlogname,String stpassword,HttpSession session){
+	public Object login(String stlogname,String stpassword ){
 		
 		try {
 			Store store = appService.login(stlogname, stpassword);
-			session.setAttribute("store", store);
+//			session.setAttribute("store", store);
 			return 1;
 		} catch (LogNameIsNotExistException e) {
 			// TODO Auto-generated catch block

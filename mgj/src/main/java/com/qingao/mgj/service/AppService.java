@@ -83,5 +83,10 @@ public Store login(String stlogname,String stpassword) throws PasswordErrorExcep
 		store.setSalt(salt);
 		return storeMapper.insert(store)==1;
 	}
+	
+	
+	
+	
+	
 
 }

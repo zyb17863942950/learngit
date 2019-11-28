@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.qingao.mgj.controller.RegeditAndLoginController;
 import com.qingao.mgj.controller.Store_GoodsinfoController;
+import com.qingao.mgj.mapper.Store_GoodsCollectionMapper;
 import com.qingao.mgj.mapper.Store_GoodsinfoMapper;
 import com.qingao.mgj.mapper.Store_OrderinfoMapper;
 import com.qingao.mgj.pojo.Store;
@@ -28,7 +29,6 @@ import org.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication(scanBasePackages="com.qingao.mgj")
 @MapperScan(value="com.qingao.mgj.mapper")
 public class TestUnit {
-	private static final HttpSession HttpSession = null;
 
 	@Autowired
 	Store_OrderinfoMapper store1;
@@ -36,7 +36,8 @@ public class TestUnit {
 	@Autowired
 	RegeditAndLoginController regeditController;
 	 
-	 
+	 @Autowired
+	 Store_GoodsCollectionMapper  sgcm;
 	
 	@Test
 	public void test(){
@@ -48,9 +49,10 @@ public class TestUnit {
 		   
 		System.out.println("成功"); */ 
 		
-		/*Object login = regeditController.login("西子梦纱3", "3333");
- 		System.out.println(login);*/
-		
+		 Object login = regeditController.login("西子梦纱3", "3333");
+ 		System.out.println(login); 
+		/*Integer goodsCollectionCounts = sgcm.getGoodsCollectionCounts(4);
+		System.out.println(goodsCollectionCounts);*/
 		
 	}
 	
