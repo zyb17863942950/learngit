@@ -41,21 +41,31 @@ public class TestUnit {
 	 
 	@Test
 	public void test(){
-	/*	  Store dd=new Store();
+	 	 /* Store dd=new Store();
 		dd.setStid(1);
 		dd.setStlogname("西子梦纱");
 		dd.setStpassword("3333");
-		   regeditController.doRegedit(dd);
+		  regeditAndLoginController.doRegedit(dd);
 		   
-		System.out.println("成功"); */ 
+		System.out.println("成功"); */
+		
+		/*Store dd=new Store();
+		dd.setStid(1);
+		dd.setStlogname("洞庭秋");
+		dd.setStpassword("2222");
+		  regeditAndLoginController.doRegedit(dd);
+		   
+		System.out.println("成功");*/
+		
+		
+		
 		 
 		 /*Object login = regeditAndLoginController.login("西子梦纱3", "3333");
  		System.out.println(login); */ 
 		 /*Integer goodsCollectionCounts = stgc.getGoodsCollectionCount(4);
 		System.out.println(goodsCollectionCounts); 
 		System.out.println("成功");*/
-		Integer integer = gcontroller.getgoodscollectioncount(4, 10);
-		System.out.println(integer);
+		 
 	}
 	
 	 

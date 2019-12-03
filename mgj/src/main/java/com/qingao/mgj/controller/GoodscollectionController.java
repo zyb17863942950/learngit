@@ -24,10 +24,6 @@ public class GoodscollectionController {
 		goodscollection.setUserid(userid);
 		
 		return appService.doInsert_Goodscollection(goodscollection, gdid);
-		
-		
-		
-		 
 	}
 	
 	
